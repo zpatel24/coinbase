@@ -1,0 +1,10 @@
+# requirements.txt for the project
+
+# Flask for web development
+Flask==2.2.2
+
+# APScheduler for scheduling tasks
+APScheduler==3.9.1
+
+# Requests for making HTTP requests
+requests==2.31.0
