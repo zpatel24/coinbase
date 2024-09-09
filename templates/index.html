@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ETH Balance Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h1>ETH Balance Over Time</h1>
+    <div id="balance-chart"></div>
+
+    <script>
+        // Fetch the balance data from the API and plot it
+        fetch('/api/balances')
+            .then(response => response.json())
+            .then(data => {
+                const balances = data.map(item => item[0]);
+                const timestamps = data.map(item => item[1]);
+
+                const trace = {
+                    x: timestamps,
+                    y: balances,
+                    type: 'scatter',
+                    mode: 'lines',
+                    name: 'ETH Balance'
+                };
+
+                // Modify layout with rangeslider to get better margins
+                const layout = {
+                    title: 'ETH Balance Over Time',
+                    xaxis: {
+                        title: 'Timestamp',
+                        rangeslider: { visible: true },  // Add a rangeslider for smoother scrolling
+                        rangemode: 'nonnegative'  // Make sure that dates don't go into negative values
+                    },
+                    yaxis: { 
+                        title: 'Balance (ETH)' 
+                    },
+                    margin: {
+                        l: 110,  // Margins
+                        r: 20,  
+                        t: 50,   
+                        b: 50    
+                    },
+                    uirevision: 'true',  // Preserve zoom state on updates
+                    hovermode: 'closest',  // Make hovering smoother
+                    autosize: true  // Automatically resize the graph based on screen size
+                };
+
+                Plotly.newPlot('balance-chart', [trace], layout);
+            });
+    </script>
+</body>
+</html>
