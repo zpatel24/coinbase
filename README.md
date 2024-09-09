@@ -29,8 +29,8 @@ Prerequisites
 
 Steps to run Project
 
-1) Clone repo locally
-2) Create a virtual env 
+1) Clone this repo locally
+2) Head to this project directory and create a virtual env by running the following commands
 ```plaintext
 python3 -m venv venv
 source venv/bin/activate  # On Linux
