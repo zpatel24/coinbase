@@ -2,7 +2,7 @@ Overview
 This is a Flask-based web appl that obtains the eth balance of a specified wallet address. The app periodically queries the Coinbase Developer API for the wallet’s ETH balance and stores the results in a sqllite database. The balances are displayed in a graph using Plotly, allowing the user to view the balance over time. You can run the app locally and view the graph on your browser.
 
 Project Structure
-
+```plaintext
 coinbase-project/
 │
 ├── app.py                # Main Flask app
@@ -18,7 +18,7 @@ coinbase-project/
 └── static/               # (CSS, JS, etc.)
     └── css/
         └── styles.css    # CSS for the web app
-
+```
 
 
 Prerequisites
