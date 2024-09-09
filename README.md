@@ -30,10 +30,12 @@ Prerequisites
 Steps to run Project
 
 1) Clone repo locally
-2) Create a virtual env python3 -m venv venv
-source venv/bin/activate  # On Linux
+2) Create a virtual env 
+```plaintext
 python3 -m venv venv
-3) Download dependencies from requirements.txt (pip installs)
+source venv/bin/activate  # On Linux
+```
+3) Download dependencies from requirements.txt (pip install -r requirements.txt)
 4) Run the application by running (python app.py)
 5) Open a browser and go to http://127.0.0.1:5000/ to view the eth balance graph locally
 
